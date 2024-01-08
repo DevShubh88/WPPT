@@ -1,0 +1,54 @@
+<html>
+    <head>
+        AGE CALCULATOR
+
+        <script>
+            function calculateAge()
+            {
+                let birthdateInput = document.getElementById("birthdate")
+                let birthdate=new Date(birthdateInput.value)
+
+                //current date
+                let currentDate=new Date()
+
+                //age
+                let age = currentDate.getFullYear() - birthdate.getFullYear()
+
+                //if birthday has passed or not
+                let hasBirthdayPassed = currentDate.getMonth() > birthdate.getMonth() ||
+                        (currentDate.getMonth() === birthdate.getMonth() && currentDate.getDate() >= birthdate.getDate())
+                
+                //result
+                let resultElement=document.getElementById("result")
+                //resultElement.textContent = `You're ${age} years old.` 
+                //or we can do the same using "innerHTML" function too
+                document.getElementById("result").innerHTML = " You're "+age+" years old.<br/>"
+                
+                
+
+                if(hasBirthdayPassed)
+                {
+                    document.getElementById("result").innerHTML += "<b> Your birthday has already passed this year. HAPPY BELATED BIRTHDAY!"
+                    //resultElement.textContent +=`Your birthday has already passed this year. HAPPY BELATED BIRTHDAY!`
+                }
+                else
+                {
+                    document.getElementById("result").innerHTML += "<b> Your birthday is yet to come this year. HAPPY BIRTHDAY IN ADVANCE!"
+                    //resultElement.textContent +=`Your birthday is yet to come this year. HAPPY BIRTHDAY IN ADVANCE!!`
+
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Age Calculator</h2>
+
+        <div>
+            <label for="birthdate">Your Birthdate</label>
+            <input type="date" id="birthdate" required>
+            <button type="button" onclick="calculateAge()">Calculate Age</button>
+            
+            <p id="result"></p>
+        </div>
+    </body>
+</html>

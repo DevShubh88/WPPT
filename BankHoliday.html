@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>DATE ANALYSIS</title>
+        
+        <script>
+            function analyzeDate()
+            {
+               // let selectedDateInput = 
+                let selectedDate = new Date(document.getElementById("selectedDate").value)
+                //getting day of week
+                let dayOfWeek = selectedDate.toLocaleDateString('en-US',{weekday:'long'});
+
+                //checking if date is 2nd/4th sat or a sunday
+                let holidayStatus = ""
+                if(selectedDate.getDay() === 6)
+                {
+                        let weekOfMonth = Math.floor((selectedDate.getDate()-1)/7)+1;
+                    
+                    //for sat
+                    if(weekOfMonth === 2)
+                    {
+                        holidayStatus = ":- BANK HOLIDAY => Second Saturday"
+                    }
+                    else if(weekOfMonth === 4)
+                    {
+                        holidayStatus = ":- BANK HOLIDAY => Fourth Saturday"
+                    }
+                }
+                else if(selectedDate.getDay() === 0)
+                {
+                    //sun
+                    holidayStatus = ":- BANK HOLIDAY => Its SUNDAY!!!"
+                }
+
+                //result
+                let resultElement = document.getElementById("result");
+                //1st way
+                //resultElement.textContent = `Selected date is ${dayOfWeek} ${holidayStatus}`
+                //2nd way
+                let outputstr = `Selected date is ${dayOfWeek} ${holidayStatus}`
+                resultElement.innerHTML=outputstr
+            }
+        </script>
+    </head>
+
+    <body>
+        <div>
+            
+            <label for="selectedDate">Select a Date : </label>
+            <input type="date" id="selectedDate" required><br/>
+            <button type="button" onclick="analyzeDate()" >Analyze Date</button>
+        </div>
+
+        <p id="result"></p>
+    </body>
+
+</html>

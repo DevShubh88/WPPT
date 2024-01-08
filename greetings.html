@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>GREETINGS</title>
+        <script>
+            function generateGreetings()
+            {
+                let fname=document.getElementById("fname").value
+                let lname=document.getElementById("lname").value
+                let g=document.querySelector('input[name="gender"]:checked').value;
+            
+                //result
+                let greetingsResult = document.getElementById("result")
+                greetingsResult.textContent=`${g} ${lname} ${fname}`
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+        <label for="fname">First Name : </label>
+        <input type="text" id="fname" required><br><br>
+        <label for="lname">Last Name : </label>
+        <input type="text" id="lname" required><br><br>
+
+        <label>Gender : </label>
+        <input type="radio" name="gender" id="male" value="Mr." >
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="female" value="Madam." >
+        <label for="female">Female</label>
+        <br><br>
+
+        <button type="button" onclick="generateGreetings()">Greetings</button>
+    </div>
+    
+
+    <p id="result"></p>
+
+    </body>
+</html>

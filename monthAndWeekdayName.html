@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <script>
+            function displayMonthName()
+            {
+                let monthNumber=document.getElementById("monthNumber").value
+                let monthNames=[ "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"]
+                
+                let selectedMonth=monthNames[monthNumber-1]
+                //result
+                //document.getElementById("result").innerHTML="Selected Month : "+selectedMonth
+                displayResult(selectedMonth)
+            }
+
+            function displayWeekDayName()
+            {
+                let weekDayNumber = document.getElementById("weekDayNumber").value
+                let weekdayNames = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+                
+                let selectedWeek = weekdayNames[weekDayNumber]
+                //result
+              //  document.getElementById("result").innerHTML += +"Selected Week : "+selectedWeek
+    
+                displayResult(selectedWeek)
+            }
+
+            function displayResult(result1)
+            {
+                document.getElementById("result").innerHTML+="<br/>Selected : "+result1
+
+            }
+    
+        </script>
+
+    </head>
+
+    <body>
+        <div>
+            <label for="monthNumber">Select a Month number : </label>
+            <select id="monthNumber" onchange="displayMonthName()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+
+            </select>
+            <br><br>
+            <label for="weekDayNumber">Select a weekday number : </label>
+            <select id="weekDayNumber" onchange="displayWeekDayName()">
+                <option value="0">1</option>
+                <option value="1">2</option>
+                <option value="2">3</option>
+                <option value="3">4</option>
+                <option value="4">5</option>
+                <option value="5">6</option>
+                <option value="6">7</option>
+            </select>
+
+
+
+
+
+
+
+        </div>
+        <p id="result"></p>
+    </body>
+</html>
